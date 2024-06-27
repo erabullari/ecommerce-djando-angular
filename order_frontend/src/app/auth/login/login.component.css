@@ -1,0 +1,156 @@
+/* Common styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+nav a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 15px;
+}
+
+li h3 {
+  margin: 0;
+}
+
+li p {
+  margin: 5px 0;
+}
+
+p {
+  color: #0a4188;
+  text-align: center;
+}
+
+span {
+  font-weight: bold;
+  margin-left: 7px;
+}
+
+h3 {
+  color: #0056b3;
+  text-align: center;
+  font-weight: bold;
+}
+
+a {
+  color: #0a4188;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* login.component.css */
+.login-container {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.login-container input {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-container button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #0056b3;
+}
+
+.login-container .error-message {
+  color: red;
+  font-size: 0.9rem;
+}
+
+h3 {
+  text-align: center;
+  color: #0a4188;
+  font-weight: bold;
+}
+
+p {
+  margin-top: 10px;
+  color: #0a4188;
+  text-align: center;
+}
+
+a {
+  color: #0a4188;
+  font-weight: bold;
+  text-decoration: none;
+}

@@ -1,0 +1,14 @@
+<nav *ngIf="isAuthenticated" class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-brand">
+      <a routerLink="/orders">MyApp</a>
+    </div>
+    <ul class="navbar-menu">
+      <li class="navbar-item" *ngIf="authService.isAuthenticated()"><a routerLink="/orders">Orders</a></li>
+      <li class="navbar-item" *ngIf="authService.isAuthenticated()"><a routerLink="/products">Products</a></li>
+      <li class="navbar-item" *ngIf="authService.isAuthenticated() && !authService.isInGroup('Shites')"><a routerLink="/shites">Agents</a></li>
+      <li class="navbar-item" *ngIf="authService.isAuthenticated()"><a routerLink="/agents">Users</a></li>
+      <li class="navbar-item-logout"><a (click)="logout()">Logout</a></li>
+    </ul>
+  </div>
+</nav>

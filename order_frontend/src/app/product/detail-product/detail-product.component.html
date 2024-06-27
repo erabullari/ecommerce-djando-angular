@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="heading">Edit Product Information</div>
+  <br>
+  <br>
+  <div *ngIf="productData.name" class="product-info">
+    <!-- Display product information if needed -->
+  </div>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="form">
+    <label for="name" class="label">Product Name: </label>
+    <input formControlName="name" class="input" type="text" id="name">
+
+    <label for="default_price" class="label">Price: </label>
+    <input formControlName="default_price" class="input" type="number" id="default_price">
+
+    <label for="description" class="label">Description: </label>
+    <input formControlName="description" class="input" type="text" id="description">
+
+    <label for="categories" class="label">Categories: </label>
+    <mat-form-field appearance="fill" class="input">
+      <mat-label>Categories</mat-label>
+      <mat-select formControlName="categories" multiple>
+        <mat-option *ngFor="let category of categories" [value]="category.id">
+          {{ category.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <input class="login-button" type="submit" value="Save">
+    <button class="cancle-button" mat-button [routerLink]="['/products']">Cancel</button>
+  </form>
+</div>

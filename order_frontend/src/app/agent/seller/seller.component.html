@@ -1,0 +1,46 @@
+<main>
+
+<!--<button class="addUser" [routerLink]="['/agents/add']">New User</button>-->
+ <br>
+  <h3>Users List</h3>
+<br>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Username Column -->
+
+  <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef> Username </th>
+    <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+  </ng-container>
+
+  <!-- First Name Column -->
+  <ng-container matColumnDef="first_name">
+    <th mat-header-cell *matHeaderCellDef> First Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
+  </ng-container>
+
+  <!-- Email Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <!-- Last Name Column -->
+  <ng-container matColumnDef="last_name">
+    <th mat-header-cell *matHeaderCellDef> Last Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-button (click)="openDeleteConfirmationDialog(element.id)">Delete</button>
+      <button mat-button [routerLink]="['/agents/details', element.id]">Edit</button>    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <router-outlet></router-outlet>
+</table>
+</main>

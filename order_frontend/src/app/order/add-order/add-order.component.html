@@ -1,0 +1,51 @@
+<mat-card class="order-form-card">
+  <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Customer</mat-label>
+      <input matInput id="customer" formControlName="customer" type="number">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Creator</mat-label>
+      <mat-select formControlName="creator">
+        <mat-option *ngFor="let creator of creators" [value]="creator.id">
+          {{ creator.username }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div formArrayName="order_units" class="order-units">
+      <div *ngFor="let unit of orderUnits.controls; let i = index" [formGroupName]="i" class="order-unit">
+        <h4>Order Unit {{i + 1}}</h4>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Amount</mat-label>
+          <input matInput id="amount" formControlName="amount" type="number">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Price</mat-label>
+          <input matInput id="price" formControlName="price" type="number">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Product</mat-label>
+          <mat-select formControlName="product">
+            <mat-option *ngFor="let product of products" [value]="product.id">
+              {{ product.name }} - ${{ product.default_price }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-icon-button color="warn" type="button" (click)="removeOrderUnit(i)">
+          <mat-icon>remove_circle</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <h3>Total Amount: {{ totalAmount | currency }}</h3>
+
+    <button mat-raised-button color="primary" type="button" (click)="addOrderUnit()">Add Order Unit</button>
+    <button mat-raised-button color="accent" type="submit">Submit</button>
+  </form>
+</mat-card>

@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="heading">Edit Customer Information</div>
+  <br>
+  <br>
+  <div *ngIf="customerData.company_name" class="user-info">
+    <!-- Additional customer details can be displayed here if needed -->
+  </div>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="form">
+    <label for="first_name" class="label">First Name: </label>
+    <input formControlName="first_name" class="input" type="text" id="first_name">
+    <div *ngIf="editForm.get('first_name')?.invalid && editForm.get('first_name')?.touched" class="error">
+      First Name is required.
+    </div>
+
+    <label class="label" for="last_name">Last Name: </label>
+    <input formControlName="last_name" class="input" type="text" id="last_name">
+    <div *ngIf="editForm.get('last_name')?.invalid && editForm.get('last_name')?.touched" class="error">
+      Last Name is required.
+    </div>
+
+    <label class="label" for="company_name">Company Name: </label>
+    <input formControlName="company_name" class="input" type="text" id="company_name">
+    <div *ngIf="editForm.get('company_name')?.invalid && editForm.get('company_name')?.touched" class="error">
+      Company Name is required.
+    </div>
+
+
+
+    <input class="login-button" type="submit" value="Save" [disabled]="editForm.invalid">
+    <button class="cancel-button" mat-button [routerLink]="['/customers']">Cancel</button>
+  </form>
+</div>

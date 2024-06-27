@@ -1,0 +1,52 @@
+<main>
+
+  <button class="addUser" [routerLink]="['/orders/new']">New Order</button>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Code Column -->
+    <ng-container matColumnDef="code">
+      <th mat-header-cell *matHeaderCellDef> Code </th>
+      <td mat-cell *matCellDef="let order"> {{ order.code }} </td>
+    </ng-container>
+
+    <!-- Code Year Column -->
+    <ng-container matColumnDef="code_year">
+      <th mat-header-cell *matHeaderCellDef> Year </th>
+      <td mat-cell *matCellDef="let order"> {{ order.code_year }} </td>
+    </ng-container>
+
+    <!-- Date Registered Column -->
+    <ng-container matColumnDef="date_registered">
+      <th mat-header-cell *matHeaderCellDef> Date Registered </th>
+      <td mat-cell *matCellDef="let order"> {{ order.date_registered | date }} </td>
+    </ng-container>
+
+    <!-- Customer Column -->
+    <ng-container matColumnDef="user">
+      <th mat-header-cell *matHeaderCellDef> Customer</th>
+      <td mat-cell *matCellDef="let order">
+        {{ order.customer }} {{ order.customer_last_name }}
+      </td>
+    </ng-container>
+
+    <!-- Creator Username Column -->
+    <ng-container matColumnDef="creator_username">
+      <th mat-header-cell *matHeaderCellDef> User </th>
+      <td mat-cell *matCellDef="let order"> {{ order.creator }} </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let order">
+        <button mat-button class="delete-button" (click)="openDeleteConfirmationDialog(order.id)">Delete</button>
+        <button mat-button [routerLink]="['/orders/detail', order.id]">View</button>
+      </td>
+    </ng-container>
+
+    <!-- Header and Row Declarations -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</main>

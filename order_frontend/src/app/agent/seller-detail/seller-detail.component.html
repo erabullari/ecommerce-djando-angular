@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="heading">Edit personal information</div>
+  <br>
+  <br>
+  <div *ngIf="userData.username" class="user-info">
+
+  </div>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="form">
+    <label for="first_name" class="label">First Name: </label>
+    <input formControlName="first_name" class="input" type="text" id="first_name">
+    <div *ngIf="editForm.get('first_name')?.invalid && editForm.get('first_name')?.touched" class="error">
+      First Name is required.
+    </div>
+
+    <label class="label" for="last_name" >Last Name: </label>
+    <input formControlName="last_name" class="input" type="text" id="last_name">
+    <div *ngIf="editForm.get('last_name')?.invalid && editForm.get('last_name')?.touched" class="error">
+      Last Name is required.
+    </div>
+
+    <label class="label" for="username">Username: </label>
+    <input formControlName="username" class="input" type="text" id="username">
+    <div *ngIf="editForm.get('username')?.invalid && editForm.get('username')?.touched" class="error">
+      Username is required.
+    </div>
+
+    <label for="email" class="label">Email: </label>
+    <input formControlName="email" class="input" type="email" id="email">
+    <div *ngIf="editForm.get('email')?.invalid && editForm.get('email')?.touched" class="error">
+      Email is required.
+    </div>
+
+    <input class="login-button" type="submit" value="Save" [disabled]="editForm.invalid">
+    <button  class="cancle-button" mat-button [routerLink]="['/agents']">Cancle</button>
+
+  </form>
+</div>

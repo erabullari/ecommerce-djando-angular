@@ -1,0 +1,39 @@
+a { cursor: pointer }
+
+.app-container {
+
+  min-height: 320px;
+  overflow: hidden;
+}
+
+/*table{*/
+/*  border: 1px solid black;*/
+/* */
+/*}*/
+.btn-delete-user {
+  width: 40px;
+  text-align: center;
+  box-sizing: content-box;
+}
+.addUser{
+  background: #1b7116;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-left: 15px;
+  margin-top: 50px;
+}
+main{
+  width: 1300px;
+  margin: 0 auto;
+}
+
+.delete-button {
+  background-color: inherit; /* Use the current background color */
+}
+
+.delete-button:hover {
+  background-color: #e8a0a0; /* Change background color to red on hover */
+  color: #0a4188; /* Ensure the text is readable on a red background */
+}

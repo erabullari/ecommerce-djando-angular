@@ -1,0 +1,29 @@
+.order-form-card {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.order-units {
+  margin-top: 20px;
+}
+
+.order-unit {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.order-unit h4 {
+  margin-top: 0;
+}
+
+button[mat-icon-button] {
+  margin-left: 10px;
+}

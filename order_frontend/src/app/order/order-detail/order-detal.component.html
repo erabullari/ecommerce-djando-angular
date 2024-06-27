@@ -1,0 +1,93 @@
+<div class="order-detail-container">
+  <mat-card *ngIf="orderData">
+    <mat-card-title>Order Details</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="code">Code</label>
+          <input id="code" formControlName="code">
+        </div>
+        <div>
+          <label for="code_year">Code Year</label>
+          <input id="code_year" formControlName="code_year">
+        </div>
+        <div>
+          <label for="date_registered">Date Registered</label>
+          <input id="date_registered" formControlName="date_registered">
+        </div>
+
+        <div>
+          <label for="date_registered">Customer</label>
+          <input id="customer" formControlName="customer">
+        </div>
+
+        <div>
+          <label >Creator</label>
+          <mat-form-field>
+            <mat-select formControlName="creator">
+              <mat-option *ngFor="let creator of users" [value]="creator.id">
+                {{ creator.username }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div formArrayName="order_units">
+          <h3>Order Units</h3>
+          <table mat-table [dataSource]="orderUnits.controls" class="mat-elevation-z8">
+            <!-- Amount Column -->
+            <ng-container matColumnDef="amount">
+              <th mat-header-cell *matHeaderCellDef> Amount </th>
+              <td mat-cell *matCellDef="let orderUnit" [formGroup]="orderUnit">
+                <input formControlName="amount">
+              </td>
+            </ng-container>
+
+            <!-- Price Column -->
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef> Price </th>
+              <td mat-cell *matCellDef="let orderUnit" [formGroup]="orderUnit">
+                <input formControlName="price">
+              </td>
+            </ng-container>
+
+            <!-- Product Column -->
+            <ng-container matColumnDef="product">
+              <th mat-header-cell *matHeaderCellDef> Product </th>
+              <td mat-cell *matCellDef="let orderUnit" [formGroup]="orderUnit">
+                <mat-form-field>
+                  <mat-select formControlName="product">
+                    <mat-option *ngFor="let product of products" [value]="product.id">
+                      {{ product.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+            </ng-container>
+
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef> Actions </th>
+              <td mat-cell *matCellDef="let orderUnit; let i = index" [formGroup]="orderUnit">
+                <button mat-button color="warn" (click)="removeOrderUnit(i)">Delete</button>
+              </td>
+            </ng-container>
+
+            <!-- Header and Row Declarations -->
+            <!-- Header and Row Declarations -->
+            <tr mat-header-row *matHeaderRowDef="orderUnitColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: orderUnitColumns;"></tr>
+          </table>
+          <button mat-button (click)="openAddOrderUnitDialog()">Add Order Unit</button>
+        </div>
+
+            <!-- Header and Row Declarations -->
+            <tr mat-header-row *matHeaderRowDef="orderUnitColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: orderUnitColumns;"></tr>
+
+
+        <button mat-raised-button color="primary" type="submit">Save</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

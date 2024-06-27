@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="heading">Add New Product</div>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="form">
+    <input formControlName="name" class="input" type="text" placeholder="Product Name">
+    <input formControlName="default_price" class="input" type="number" placeholder="Price">
+    <input formControlName="description" class="input" type="text" placeholder="Description">
+
+    <!-- Category Multi-Select -->
+    <mat-form-field appearance="fill">
+      <mat-label>Categories</mat-label>
+      <mat-select formControlName="categories" multiple>
+        <mat-option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <input class="login-button" type="submit" value="Add Product" [disabled]="productForm.invalid">
+    <button class="cancel-button" mat-button [routerLink]="['/products']">Cancel</button>
+  </form>
+</div>

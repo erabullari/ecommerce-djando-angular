@@ -1,0 +1,45 @@
+.order-detail-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+mat-card {
+  width: 600px;
+}
+
+mat-card-title {
+  text-align: center;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+div {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+div[formArrayName="order_units"] {
+  margin-top: 20px;
+}
+
+div[formArrayName="order_units"] > div {
+  margin-bottom: 10px;
+}
+
+div[formArrayName="order_units"] > div > div {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,30 @@
+a { cursor: pointer }
+
+.app-container {
+
+  min-height: 320px;
+  overflow: hidden;
+}
+
+/*table{*/
+/*  border: 1px solid black;*/
+/* */
+/*}*/
+.btn-delete-user {
+  width: 40px;
+  text-align: center;
+  box-sizing: content-box;
+}
+.addProduct{
+  background: #1b7116;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-left: 15px;
+  margin-top: 50px;
+}
+main{
+  width: 1300px;
+  margin: 0 auto;
+}
